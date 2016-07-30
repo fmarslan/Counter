@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Counter</string>
+    <string name="action_add">New Counter</string>
+    <string name="action_edit">Edit Counter</string>
+    <string name="action_select">Select Counter</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_close">Exit</string>
+</resources>
