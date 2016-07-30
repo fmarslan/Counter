@@ -37,7 +37,9 @@ public class CounterManager {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                counter.addCounter(input.getText().toString());
+                if(input.getText().toString().trim().isEmpty())
+                    return;
+                counter.addCounter(input.getText().toString().trim());
                 listener.added(input.getText().toString());
             }
         });
@@ -51,11 +53,15 @@ public class CounterManager {
 
         final EditText input = new EditText(activity);
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setText(counter.getValue().toString());
         builder.setView(input);
+
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                if(input.getText().toString().trim().isEmpty())
+                    return;
                 counter.setValue(Integer.valueOf(input.getText().toString()));
                 listener.added(counter.getKey());
                 counter.load(counter.getKey());
@@ -82,6 +88,8 @@ public class CounterManager {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                if(s.getSelectedItem()==null)
+                    return;
                counter.load(s.getSelectedItem().toString());
             }
         });

@@ -24,7 +24,7 @@ public class Counter {
         this.activity = activity;
         dbClient = new DbClient(activity);
         if (getCounters().isEmpty())
-            load(DEFAULT_KEY);
+            addCounter(DEFAULT_KEY);
         else
             load(getCounters().iterator().next());
     }
